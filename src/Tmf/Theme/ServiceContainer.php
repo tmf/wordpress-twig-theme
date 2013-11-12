@@ -10,9 +10,9 @@ class ServiceContainer extends Pimple
 {
   public function __construct()
   {
-    $this['theme_path'] = __DIR__;
-    $this['template_path'] = __DIR__ . '/resources/templates';
-    $this['cache_path'] = __DIR__ . '/resources/cache';
+    $this['theme_path'] = dirname(dirname(dirname(__DIR__)));
+    $this['template_path'] = $this['theme_path'] . '/resources/templates';
+    $this['cache_path'] = $this['theme_path'] . '/resources/cache';
 
     $this['twig_loader'] = function ($c) {
       return new Twig_Loader_Filesystem($c['template_path']);

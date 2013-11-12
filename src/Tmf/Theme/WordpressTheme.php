@@ -24,9 +24,9 @@ class WordpressTheme
   public function filterTemplateInclude($file)
   {
     $pathInfo = pathInfo($file);
-    $templateName = $pathInfo['filename'] . '.html';
+    $templateName = $pathInfo['filename'] . '.html.twig';
     $template = $this->container['twig']->loadTemplate($templateName);
-    echo $template->render();
+    echo $template->render(array());
     return false;
   }
 
