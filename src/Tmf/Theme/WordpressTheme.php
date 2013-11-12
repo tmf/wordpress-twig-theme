@@ -1,12 +1,13 @@
 <?php
 namespace Tmf\Theme;
 
-use ServiceContainer;
-
 class WordpressTheme
 {
+  protected $container;
+
   public function __construct(ServiceContainer $container)
   {
+    $this->container = $container;
     add_action('after_setup_theme', array($this, 'setupTheme'));
   }
 
@@ -22,6 +23,10 @@ class WordpressTheme
 
   public function filterTemplateInclude($file)
   {
+    $pathInfo = pathInfo($file);
+    $templateName = $pathInfo['filename'] . '.html';
+    $template = $this->container['twig']->loadTemplate($templateName);
+    echo $template->render();
     return false;
   }
 

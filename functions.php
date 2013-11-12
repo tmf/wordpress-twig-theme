@@ -1,6 +1,7 @@
 <?php
 
 foreach (array(
+           __DIR__ . '/../../../vendor/',
            __DIR__ . '/../../vendor/',
            __DIR__ . '/vendor/'
          ) as $vendorPath) {
