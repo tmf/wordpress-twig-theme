@@ -1,5 +1,18 @@
 <?php
 
-require_once  '../../vendor/autoload.php';
+foreach (array(
+           __DIR__ . '/../../vendor/',
+           __DIR__ . '/vendor/'
+         ) as $vendorPath) {
+  if (is_dir(realpath($vendorPath))) {
+    require_once $vendorPath . 'autoload.php';
 
-$wordpressTheme = new Tmf\Theme\WordpressTheme();
+    $container = new Tmf\Theme\ServiceContainer();
+
+    $wordpressTheme = new Tmf\Theme\WordpressTheme($container);
+    break;
+  }
+}
+
+
+

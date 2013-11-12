@@ -1,6 +1,12 @@
 <?php
 namespace Tmf\Theme;
 
-class WordpressTheme {
+use Pimple;
 
+class WordpressTheme
+{
+  public function __construct(ServiceContainer $container)
+  {
+
+  }
 } 

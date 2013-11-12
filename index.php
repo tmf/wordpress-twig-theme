@@ -1,1 +1,3 @@
 <?php
+// nothing to do here...
+die('lolwhut');
