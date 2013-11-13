@@ -12,12 +12,12 @@ class ServiceContainer extends Pimple
   public function __construct()
   {
     $this['theme_path'] = dirname(dirname(dirname(__DIR__)));
-    $this['template_path'] = $this['theme_path'] . '/resources/templates';
-    $this['cache_path'] = $this['theme_path'] . '/resources/cache';
+    $this['view_path'] = $this['theme_path'] . '/views';
+    $this['cache_path'] = $this['theme_path'] . '/cache';
     $this['asset_path'] = $this['theme_path'] . '/resources';
 
     $this['twig_loader'] = function ($c) {
-      return new Twig_Loader_Filesystem($c['template_path']);
+      return new Twig_Loader_Filesystem($c['view_path']);
     };
 
     $this['wordpress_proxy'] = function ($c) {
