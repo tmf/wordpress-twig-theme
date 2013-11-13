@@ -9,6 +9,7 @@ class WordpressTheme
   {
     $this->container = $container;
     add_action('after_setup_theme', array($this, 'setup'));
+    add_action('init', array($this, 'init'));
   }
 
   public function setup()

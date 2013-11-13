@@ -5,6 +5,7 @@ namespace Tmf\Theme;
 use Pimple;
 use Twig_Environment;
 use Twig_Loader_Filesystem;
+use Twig_SimpleFilter;
 use Tmf\Twig\WordpressProxy;
 
 class ServiceContainer extends Pimple
@@ -31,6 +32,11 @@ class ServiceContainer extends Pimple
       ));
 
       $twig->addGlobal('wp', $c['wordpress_proxy']);
+
+      $emptyStringFilter = new Twig_SimpleFilter('es', function ($something) {
+        return '';
+      });
+      $twig->addFilter($emptyStringFilter);
       return $twig;
     };
   }

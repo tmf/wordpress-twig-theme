@@ -12,13 +12,13 @@
     <meta name="viewport" content="width=1040" />
     <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Arvo:700" rel="stylesheet" type="text/css" />
     <!--[if lte IE 8]>
-    {{ wp.wp_print_scripts(['html5shiv']) }}
+    {{ wp.wp_print_scripts('html5shiv') | es }}
     <![endif]-->
 
     <noscript>
-        {{ wp.wp_print_styles(['skel-noscript', 'skel-desktop']) }}
+        {{ wp.wp_print_styles(['skel-noscript', 'skel-desktop']) | es  }}
     </noscript>
-    {{ wp.wp_head() }}
+    {{ wp.wp_head() | es }}
 </head>
 <body class="homepage">
 
