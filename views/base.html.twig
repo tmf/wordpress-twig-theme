@@ -20,7 +20,7 @@
     </noscript>
     {{ wp.wp_head() }}
 </head>
-<body {{ body_class('homepage') }}>
+<body {{ wp.body_class('homepage') }}>
 
 {% block header %}
     {% embed 'header.html.twig' %}{% endembed  %}
