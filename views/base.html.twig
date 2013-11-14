@@ -25,10 +25,12 @@
 {% include 'header.html.twig' %}
 
 {% block content %}
-    {% include 'main.html.twig' %}
+    {% include 'demo.html.twig' %}
 {% endblock %}
 
 {% include 'footer.html.twig' %}
+
+{{ wp.wp_footer() | es }}
 
 </body>
 </html>

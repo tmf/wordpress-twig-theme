@@ -31,8 +31,8 @@ class WordpressTheme
     wp_enqueue_script('jquery-dropotron', $uri . '/resources/scripts/jquery.dropotron.min.js', array('jquery'), $this->version);
     wp_enqueue_script('skel', $uri . '/resources/scripts/skel.min.js', array('jquery', 'skel-config'), $this->version);
     wp_enqueue_script('skel-panels', $uri . '/resources/scripts/skel-panels.min.js', array('jquery', 'skel'), $this->version);
-    wp_enqueue_script('config', $uri . '/resources/scripts/config.js', array(), $this->version);
-    wp_localize_script('config', 'theme', array('uri' => trailingslashit($uri)));
+    wp_enqueue_script('skel-config', $uri . '/resources/scripts/config.js', array(), $this->version);
+    wp_localize_script('skel-config', 'theme', array('uri' => trailingslashit($uri)));
   }
 
   public function filterTemplateInclude($file)
