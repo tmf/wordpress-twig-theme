@@ -6,13 +6,15 @@
 
                 <!-- Header -->
                 <div id="header">
+                    {% block bloginfo %}
 
-                    <!-- Logo -->
-                    <div id="logo">
-                        <h1><a href="#">{{ wp.get_bloginfo('title') }}</a></h1>
-                        <span class="byline">{{ wp.get_bloginfo('description') }}</span>
-                    </div>
-                    <!-- /Logo -->
+                        <!-- Logo -->
+                        <div id="logo">
+                            <h1><a href="#">{{ wp.get_bloginfo('title') }}</a></h1>
+                            <span class="byline">{{ wp.get_bloginfo('description') }}</span>
+                        </div>
+                        <!-- /Logo -->
+                    {% endblock %}
 
                     <!-- Nav -->
                     <nav id="nav">

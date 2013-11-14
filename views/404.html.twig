@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block header %}
+    {% embed 'header.html.twig' %}
+        {% block bloginfo %}
+
+        {% endblock %}
+    {% endembed %}
+{% endblock %}
+
+{% block content %}
+    404
+{% endblock %}

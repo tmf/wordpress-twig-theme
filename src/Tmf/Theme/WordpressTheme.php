@@ -18,7 +18,8 @@ class WordpressTheme
       'home' => 'index.html.twig',
       'archive' => 'index.html.twig',
       'search' => 'index.html.twig',
-      'single' => 'post/detail.html.twig'
+      'single' => 'post/detail.html.twig',
+      '404' => '404.html.twig'
     );
 
     add_action('after_setup_theme', array($this, 'setup'));
@@ -28,10 +29,10 @@ class WordpressTheme
   public function setup()
   {
 
-    foreach($this->viewsByTemplate as $template => $view){
-      add_filter( $template . '_template', function ($file) use($template){
-        return $template;
-      });
+    foreach ($this->viewsByTemplate as $template => $view) {
+      add_filter($template . '_template', function ($file) use ($template) {
+          return $template;
+        });
     }
 
 
@@ -53,11 +54,8 @@ class WordpressTheme
       wp_enqueue_script('skel-config', $uri . '/resources/scripts/config.js', array(), $this->version);
       wp_localize_script('skel-config', 'theme', array('uri' => trailingslashit($uri)));
 
-      add_action('wp_head', function () {
-
-        remove_action('wp_head', '_admin_bar_bump_cb');
-
-      }, -1);
+      add_theme_support('admin-bar', array('callback' => '__return_false'));
+      remove_action('wp_head', 'mp6_override_toolbar_margin', 11);
     }
 
     register_nav_menu('header-menu', __('Header Menu', $this->textDomain));
@@ -65,12 +63,19 @@ class WordpressTheme
 
   }
 
-  public function filterTemplateInclude($template)
+  public function filterTemplateInclude($slug)
   {
+    $twig = $this->container['twig'];
+    if (!isset($this->viewsByTemplate[$slug])) {
+      $slug = '404';
+    }
+    $view = $this->viewsByTemplate[$slug];
 
-    $view = $this->viewsByTemplate[$template];
-    $template = $this->container['twig']->loadTemplate($view);
-    echo $template->render($this->getViewData($template));
+    if ($view) {
+      $template = $twig->loadTemplate($view);
+      echo $template->render($this->getViewData($view));
+    }
+
     return false;
   }
 

@@ -22,13 +22,15 @@
 </head>
 <body class="homepage">
 
-{% include 'header.html.twig' %}
-
-{% block content %}
-    {% include 'demo.html.twig' %}
+{% block header %}
+    {% embed 'header.html.twig' %}{% endembed  %}
 {% endblock %}
 
-{% include 'footer.html.twig' %}
+{% block content %}{% endblock %}
+
+{% block footer %}
+    {% embed 'footer.html.twig' %}{% endembed %}
+{% endblock %}
 
 {{ wp.wp_footer() | es }}
 
