@@ -12,7 +12,7 @@ class WordpressTheme
   {
     $this->container = $container;
     $this->version = 'v1.0';
-    $this->slug = 'tmf-wordpress-theme';
+    $this->slug = 'wordpress-twig-theme';
 
     $this->viewsByTemplate = array(
       'home' => 'index.html.twig',
