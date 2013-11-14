@@ -12,15 +12,15 @@
     <meta name="viewport" content="width=1040" />
     <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Arvo:700" rel="stylesheet" type="text/css" />
     <!--[if lte IE 8]>
-    {{ wp.wp_print_scripts('html5shiv') | es }}
+    {{ wp.wp_print_scripts('html5shiv') }}
     <![endif]-->
 
     <noscript>
-        {{ wp.wp_print_styles(['skel-noscript', 'skel-desktop']) | es  }}
+        {{ wp.wp_print_styles(['skel-noscript', 'skel-desktop']) }}
     </noscript>
-    {{ wp.wp_head() | es }}
+    {{ wp.wp_head() }}
 </head>
-<body class="homepage">
+<body {{ body_class('homepage') }}>
 
 {% block header %}
     {% embed 'header.html.twig' %}{% endembed  %}
@@ -32,7 +32,7 @@
     {% embed 'footer.html.twig' %}{% endembed %}
 {% endblock %}
 
-{{ wp.wp_footer() | es }}
+{{ wp.wp_footer() }}
 
 </body>
 </html>

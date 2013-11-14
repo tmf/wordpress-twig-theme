@@ -1,9 +1,6 @@
 <?php
 
-
 namespace Tmf\Twig;
-
-
 
 class WordpressProxy
 {
@@ -13,6 +10,15 @@ class WordpressProxy
       return null;
     }
 
-    return call_user_func_array($function, $arguments);
+    ob_start();
+    $result = call_user_func_array($function, $arguments);
+
+    if(!ob_get_length()){
+      ob_end_clean();
+    }else{
+      ob_end_flush();
+      $result =  '';
+    }
+    return $result;
   }
 } 

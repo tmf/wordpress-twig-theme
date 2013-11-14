@@ -33,10 +33,7 @@ class ServiceContainer extends Pimple
 
       $twig->addGlobal('wp', $c['wordpress_proxy']);
 
-      $emptyStringFilter = new Twig_SimpleFilter('es', function ($something) {
-        return '';
-      });
-      $twig->addFilter($emptyStringFilter);
+
       return $twig;
     };
   }
