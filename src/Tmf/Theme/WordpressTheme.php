@@ -14,15 +14,14 @@ class WordpressTheme
 
   public function setup()
   {
-    $templateTypes = array('index', 'date', '404', 'search', 'front', 'front_page', 'home', 'archive', 'author', 'category', 'tag', 'taxonomy', 'page', 'paged', 'single', 'attachment', 'comments_popup');
-    foreach ($templateTypes as $type) {
-      add_filter($type . '_template', array($this, 'registerTemplate'));
-    }
+
+    add_filter('index_template', function ($file) { return 'index.html.twig'; });
 
     add_filter('template_include', array($this, 'filterTemplateInclude'));
   }
 
-  public function init(){
+  public function init()
+  {
     $uri = get_template_directory_uri();
 
     wp_register_style('skel-noscript', $uri . '/resources/styles/skel-noscript.css', array('style'), $this->version);
@@ -45,8 +44,5 @@ class WordpressTheme
     return false;
   }
 
-  public function registerTemplate($template)
-  {
-    return $template;
-  }
+
 } 
