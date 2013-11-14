@@ -15,7 +15,7 @@ class WordpressTheme
   public function setup()
   {
 
-    add_filter('index_template', function ($file) { return 'index.html.twig'; });
+    add_filter('index_template', function ($file) { return 'index'; });
 
     add_filter('template_include', array($this, 'filterTemplateInclude'));
   }
@@ -33,6 +33,11 @@ class WordpressTheme
     wp_enqueue_script('skel-panels', $uri . '/resources/scripts/skel-panels.min.js', array('jquery', 'skel'), $this->version);
     wp_enqueue_script('skel-config', $uri . '/resources/scripts/config.js', array(), $this->version);
     wp_localize_script('skel-config', 'theme', array('uri' => trailingslashit($uri)));
+
+
+    add_action('wp_head', function(){
+      remove_action('wp_head', '_admin_bar_bump_cb');
+    }, -1);
   }
 
   public function filterTemplateInclude($file)
