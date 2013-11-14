@@ -22,6 +22,6 @@ root of the wordpress installation. The easiest way to install:
 ## Usage
 
 * adapt the needed views field ($viewsByTemplate) in the Tmf\Theme\WordpressTheme class
-* register the needed scripts in Tmf\Theme\WordpressTheme:init
-* adapt Tmf\Theme\WordpressTheme:getViewData to the configured views
+* register the needed scripts in Tmf\Theme\WordpressTheme::init
+* adapt Tmf\Theme\WordpressTheme::getViewData to the configured views
 * edit the twig templates in the views folder
