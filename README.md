@@ -5,6 +5,11 @@ object-oriented way in a wordpress theme.
 
 The actual twig template is based on the free, responsive http://html5up.net/escape-velocity/ template.
 
+Inspired / adapted from
+
+* [Your Guide to Composer in WordPress](http://composer.rarst.net/)
+* [Wordpress Twig Theme Integration](https://github.com/wdalmut/wp-twig-theme)
+
 ## Installation
 
 This theme requires the composer autoloader: the vendor directory (with the autoload.php entry point) is expected in the
