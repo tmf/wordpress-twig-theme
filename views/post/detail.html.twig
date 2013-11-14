@@ -15,7 +15,7 @@
                         <header>
                             <h1>{{ post.post_title }}</h1>
                         </header>
-                        {{ post.post_content }}
+                        {{ post.post_content | raw }}
                     </article>
                 </div>
             </div>
