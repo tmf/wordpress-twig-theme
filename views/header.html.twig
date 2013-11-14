@@ -9,39 +9,15 @@
 
                     <!-- Logo -->
                     <div id="logo">
-                        <h1><a href="#">Escape Velocity</a></h1>
-                        <span class="byline">A free responsive site template by HTML5 UP</span>
+                        <h1><a href="#">{{ wp.get_bloginfo('title') }}</a></h1>
+                        <span class="byline">{{ wp.get_bloginfo('description') }}</span>
                     </div>
                     <!-- /Logo -->
 
                     <!-- Nav -->
                     <nav id="nav">
                         {% block navigation %}
-                            <ul>
-                                <li class="current_page_item"><a href="index.html">Home</a></li>
-                                <li>
-                                    <span>Dropdown</span>
-                                    <ul>
-                                        <li><a href="#">Lorem ipsum</a></li>
-                                        <li><a href="#">Magna veroeros</a></li>
-                                        <li><a href="#">Etiam nisl</a></li>
-                                        <li>
-                                            <span>Sed consequat</span>
-                                            <ul>
-                                                <li><a href="#">Lorem dolor</a></li>
-                                                <li><a href="#">Amet consequat</a></li>
-                                                <li><a href="#">Magna phasellus</a></li>
-                                                <li><a href="#">Etiam nisl</a></li>
-                                                <li><a href="#">Sed feugiat</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="#">Nisl tempus</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="right-sidebar.html">Right Sidebar</a></li>
-                                <li><a href="left-sidebar.html">Left Sidebar</a></li>
-                                <li><a href="no-sidebar.html">No Sidebar</a></li>
-                            </ul>
+                            {{ wp.wp_nav_menu({'theme_location': 'header-menu', 'container': 'false'}) }}
                         {% endblock %}
                     </nav>
                     <!-- /Nav -->
