@@ -19,6 +19,7 @@ class WordpressTheme
       'archive' => 'index.html.twig',
       'search' => 'index.html.twig',
       'single' => 'post/detail.html.twig',
+      'page' => 'post/detail.html.twig',
       '404' => '404.html.twig'
     );
 
